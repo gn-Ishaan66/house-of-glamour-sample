@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The House of Glamour — Gales Ferry, CT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@400;500;600&family=Space+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17141A;
+    --card:#211B22;
+    --cream:#F3ECE6;
+    --gold:#C9A63C;
+    --rose:#B98A96;
+    --muted:#a99ca3;
+    --line: rgba(243,236,230,0.12);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--ink); color:var(--cream);
+    font-family:'Jost', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Italiana', serif; font-weight:400; line-height:1.15; letter-spacing:0.01em; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:1100px; margin:0 auto; padding:0 30px; }
+  .tag{
+    font-family:'Space Mono', monospace; font-size:11.5px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--gold);
+  }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
+
+  .notice{
+    background:var(--gold); color:var(--ink); font-family:'Space Mono',monospace;
+    font-size:12px; text-align:center; padding:9px 16px; font-weight:600;
+  }
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(23,20,26,0.88); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:80px; }
+  .logo{ font-family:'Italiana', serif; font-size:20px; letter-spacing:0.06em; text-transform:uppercase; }
+  .nav-links{ display:flex; gap:32px; font-size:13.5px; font-weight:500; letter-spacing:0.02em; }
+  .nav-links a:hover{ color:var(--gold); }
+  .nav-cta{ background:var(--gold); color:var(--ink); padding:11px 24px; border-radius:2px; font-size:13px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; }
+  .nav-cta:hover{ background:#dab84f; }
+  @media (max-width:820px){ .nav-links{ display:none; } }
+
+  .hero{
+    padding:120px 0 100px; text-align:center; position:relative;
+    background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(201,166,60,0.14), transparent 70%);
+  }
+  .hero .tag{ display:block; margin-bottom:22px; }
+  .hero h1{ font-size:clamp(42px,7vw,76px); margin-bottom:22px; text-transform:uppercase; letter-spacing:0.04em; }
+  .hero h1 em{ font-style:italic; color:var(--gold); text-transform:none; }
+  .hero p.lead{ font-size:17.5px; color:var(--muted); max-width:480px; margin:0 auto 34px; }
+  .btn-row{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+  .btn{ display:inline-block; padding:15px 30px; border-radius:2px; font-weight:600; font-size:13px; letter-spacing:0.05em; text-transform:uppercase; transition:all .15s; }
+  .btn-primary{ background:var(--gold); color:var(--ink); }
+  .btn-primary:hover{ background:#dab84f; }
+  .btn-ghost{ border:1px solid rgba(243,236,230,0.4); color:var(--cream); }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold); }
+
+  section{ padding:88px 0; }
+  .section-head{ max-width:580px; margin:0 auto 50px; text-align:center; }
+  .section-head h2{ font-size:clamp(30px,3.6vw,42px); margin-top:12px; text-transform:uppercase; letter-spacing:0.03em; }
+  .section-head p{ color:var(--muted); margin-top:14px; font-size:15.5px; }
+
+  .services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .svc{ background:var(--ink); padding:36px 28px; text-align:center; }
+  .svc .tag{ margin-bottom:12px; }
+  .svc h3{ font-size:24px; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.03em; }
+  .svc p{ font-size:14px; color:var(--muted); }
+  @media (max-width:820px){ .services-grid{ grid-template-columns:1fr; } }
+
+  .about{ background:var(--card); }
+  .about-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:54px; align-items:center; }
+  .about-photo{
+    aspect-ratio:4/5; border-radius:4px; background:linear-gradient(160deg, var(--rose), var(--gold));
+    display:flex; align-items:center; justify-content:center; padding:30px; text-align:center;
+    font-family:'Italiana',serif; font-size:15px; color:rgba(23,20,26,0.75);
+  }
+  .about-grid h2{ font-size:clamp(28px,3.4vw,38px); text-transform:uppercase; letter-spacing:0.03em; }
+  .about-grid p{ font-size:15.5px; color:var(--muted); margin-top:16px; max-width:460px; }
+  .stat-row{ display:flex; gap:34px; margin-top:26px; flex-wrap:wrap; }
+  .stat-num{ font-family:'Italiana',serif; font-size:30px; color:var(--gold); }
+  .stat-lbl{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); }
+
+  .reviews{ padding:88px 0; }
+  .review-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:10px; }
+  .review-card{ background:var(--card); border:1px solid var(--line); border-radius:4px; padding:28px 24px; }
+  .review-mark{ font-family:'Italiana',serif; font-size:34px; color:var(--gold); }
+  .review-text{ font-size:14px; margin-top:2px; color:#d9cfc8; }
+  .review-src{ font-size:11.5px; color:var(--muted); margin-top:18px; font-family:'Space Mono',monospace; }
+  @media (max-width:860px){ .review-row{ grid-template-columns:1fr; } }
+
+  .visit{ background:var(--card); }
+  .visit-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .visit-card{ background:var(--ink); border:1px solid var(--line); border-radius:4px; padding:28px 24px; text-align:center; }
+  .visit-card .tag{ margin-bottom:12px; }
+  .visit-card h3{ font-size:20px; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.03em; }
+  .visit-card p{ font-size:14px; color:var(--muted); }
+  @media (max-width:780px){ .visit-grid{ grid-template-columns:1fr; } }
+
+  .cta{ padding:90px 0; text-align:center; }
+  .cta h2{ font-size:clamp(30px,4.4vw,46px); text-transform:uppercase; letter-spacing:0.03em; }
+  .cta p{ margin-top:16px; color:var(--muted); max-width:440px; margin-left:auto; margin-right:auto; }
+  .cta .btn-row{ margin-top:30px; }
+
+  footer{ border-top:1px solid var(--line); padding:44px 0 26px; }
+  .foot-bottom{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:12px; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="notice">SAMPLE SITE — your current website link appears broken; this is a working replacement concept</div>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">House of Glamour</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+    <a href="https://www.vagaro.com/thehouseofglamour" class="nav-cta">Book Now</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">Gales Ferry, CT</span>
+    <h1>Your sanctuary<br>for <em>glamour.</em></h1>
+    <p class="lead">Hair color, cuts, and makeup — for everyone, done with real care, in a space built for good vibes only.</p>
+    <div class="btn-row">
+      <a href="https://www.vagaro.com/thehouseofglamour" class="btn btn-primary">Book an Appointment</a>
+      <a href="https://www.instagram.com/bayleeathouseofglamour/" class="btn btn-ghost">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">Services — descriptions are draft</div>
+      <h2>What We Do</h2>
+      <p>Real service categories confirmed from your reviews and Instagram — descriptions are placeholders for your own wording.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc">
+        <div class="tag">Color</div>
+        <h3>Hair Color</h3>
+        <p>[Placeholder — color services using Pravana products.]</p>
+      </div>
+      <div class="svc">
+        <div class="tag">Cuts</div>
+        <h3>Cuts, All Genders</h3>
+        <p>[Placeholder — cuts for women and men alike.]</p>
+      </div>
+      <div class="svc">
+        <div class="tag">Beauty</div>
+        <h3>Makeup</h3>
+        <p>[Placeholder — makeup services and application.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photo">[Photo of Baylee or the studio — add a real one here]</div>
+      <div>
+        <div class="tag">Meet Your Stylist</div>
+        <h2>Baylee.</h2>
+        <p>Clients regularly mention traveling long distances just to keep their appointments with Baylee — this section is a placeholder for your own story, in your own words.</p>
+        <div class="stat-row">
+          <div><div class="stat-num">4.0★</div><div class="stat-lbl">Google Rating</div></div>
+          <div><div class="stat-num">816</div><div class="stat-lbl">IG Followers</div></div>
+          <div><div class="stat-num">By Appt.</div><div class="stat-lbl">Mon / Fri / Sat</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">From Google Reviews</div>
+      <h2>What Clients Say</h2>
+      <p>Real reviews, condensed and paraphrased — get permission before publishing verbatim.</p>
+    </div>
+    <div class="review-row">
+      <div class="review-card">
+        <div class="review-mark">"</div>
+        <p class="review-text">Every style I've asked for, done without ever compromising the health of my hair — I trust her completely.</p>
+        <p class="review-src">— Google review (paraphrased)</p>
+      </div>
+      <div class="review-card">
+        <div class="review-mark">"</div>
+        <p class="review-text">Over a year of visits, even after moving away — her work is talented, professional, and always worth the trip.</p>
+        <p class="review-src">— Google review (paraphrased)</p>
+      </div>
+      <div class="review-card">
+        <div class="review-mark">"</div>
+        <p class="review-text">Messaged back right away, got me in the next day, and the studio itself felt beautifully decorated and welcoming.</p>
+        <p class="review-src">— Google review (paraphrased)</p>
+      </div>
+      <div class="review-card">
+        <div class="review-mark">"</div>
+        <p class="review-text">[Placeholder — add another real review, or a client transformation caption]</p>
+        <p class="review-src">— Google review (paraphrased)</p>
+      </div>
+      <div class="review-card">
+        <div class="review-mark">"</div>
+        <p class="review-text">[Placeholder — add another real review]</p>
+        <p class="review-src">— Google review (paraphrased)</p>
+      </div>
+      <div class="review-card">
+        <div class="review-mark">"</div>
+        <p class="review-text">[Placeholder — add another real review]</p>
+        <p class="review-src">— Google review (paraphrased)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">Visit</div>
+      <h2>Find the Studio</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card">
+        <div class="tag">Studio</div>
+        <h3>1600 CT-12, Unit 2B</h3>
+        <p>Gales Ferry, CT 06335</p>
+      </div>
+      <div class="visit-card">
+        <div class="tag">Hours</div>
+        <h3>By Appointment</h3>
+        <p>Mon: 9AM–7PM · Fri: 9AM–3PM<br>Sat: 9AM–6PM</p>
+      </div>
+      <div class="visit-card">
+        <div class="tag">Contact</div>
+        <h3>Book Online</h3>
+        <p><a href="https://www.vagaro.com/thehouseofglamour">Vagaro Booking</a> · <a href="https://www.instagram.com/bayleeathouseofglamour/">Instagram</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Step Into Glamour.</h2>
+    <p>Online booking available now — no more broken links.</p>
+    <div class="btn-row">
+      <a href="https://www.vagaro.com/thehouseofglamour" class="btn btn-primary">Book Your Appointment</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-bottom">
+      <span>© 2026 The House of Glamour</span>
+      <span>Sample site — built as a free preview, some content is placeholder</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
